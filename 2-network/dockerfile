@@ -1,0 +1,25 @@
+FROM node:latest
+WORKDIR /app
+COPY package.json .
+RUN npm install
+EXPOSE 4000
+CMD ["node", "app.js"]
+
+# cd ..
+# cd 2-network/
+# sudo docker pull mysql
+# sudo docker run -d --name ap20220174-server -e MYSQL_ROOT_PASSWORD=mypassword -e MYSQL_ROOT_DATABASE=swpreferences -e MYSQL_USER=novi -e MYSQL_PASSWORD=novi mysql
+# docker exec -it ap20220174-server mysql -uroot -pmypassword
+# CREATE USER 'novi'@'%' IDENTIFIED BY 'novi';
+# ALTER USER 'novi'@'%' IDENTIFIED WITH mysql_native_password BY 'novi';
+# CREATE DATABASE swpreferences;
+# GRANT ALL PRIVILEGES ON swpreferences.* TO 'novi'@'%';
+# FLUSH PRIVILEGES;
+# EXIT;
+# sudo docker network create ap20220174-network
+# sudo docker network ls
+# docker network connect ap20220174-network ap20220174-server
+# sudo docker build -t ap20220174-img2 .
+# sudo docker run --name ap20220174-app2 -d -p 3001:4000 --network ap20220174-network ap20220174-img2
+# 
+# 
